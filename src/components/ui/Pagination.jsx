@@ -15,20 +15,20 @@ export default function Pagination({ page, totalPages, onPrev, onNext, onGoTo })
       <button
         onClick={onPrev}
         disabled={page <= 1}
-        className="px-3 py-1.5 text-sm rounded-lg border border-border disabled:opacity-40 disabled:cursor-not-allowed hover:bg-muted transition-colors cursor-pointer"
+        className="px-3 py-2 text-sm rounded-lg border border-border min-h-[44px] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-muted transition-colors cursor-pointer"
       >
         Prev
       </button>
       {pages.map((p, i) =>
         p === "..." ? (
-          <span key={`e${i}`} className="px-2 py-1.5 text-sm text-muted-foreground">
+          <span key={`e${i}`} className="px-2 py-2 text-sm text-muted-foreground">
             ...
           </span>
         ) : (
           <button
             key={p}
             onClick={() => onGoTo(p)}
-            className={`px-3 py-1.5 text-sm rounded-lg transition-colors cursor-pointer ${
+            className={`px-3 py-2 text-sm rounded-lg min-h-[44px] transition-colors cursor-pointer ${
               p === page
                 ? "bg-primary text-primary-foreground"
                 : "border border-border hover:bg-muted"
@@ -41,7 +41,7 @@ export default function Pagination({ page, totalPages, onPrev, onNext, onGoTo })
       <button
         onClick={onNext}
         disabled={page >= totalPages}
-        className="px-3 py-1.5 text-sm rounded-lg border border-border disabled:opacity-40 disabled:cursor-not-allowed hover:bg-muted transition-colors cursor-pointer"
+        className="px-3 py-2 text-sm rounded-lg border border-border min-h-[44px] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-muted transition-colors cursor-pointer"
       >
         Next
       </button>

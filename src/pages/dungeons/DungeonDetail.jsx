@@ -72,7 +72,7 @@ export default function DungeonDetail() {
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-2xl font-bold text-foreground">{dungeon.name}</h1>
+            <h1 className="font-bold text-foreground">{dungeon.name}</h1>
             <Badge variant={difficultyColors[dungeon.difficulty]}>{dungeon.difficulty}</Badge>
           </div>
           <p className="text-muted-foreground">{dungeon.description}</p>
@@ -83,7 +83,7 @@ export default function DungeonDetail() {
         </div>
       </div>
 
-      <h2 className="text-lg font-semibold text-foreground mb-4">
+      <h2 className="font-semibold text-foreground mb-4">
         Monsters ({dungeon.monsters?.length || 0})
       </h2>
 

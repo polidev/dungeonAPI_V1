@@ -51,7 +51,7 @@ export default function DungeonList() {
   return (
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-        <h1 className="text-2xl font-bold text-foreground">Dungeons</h1>
+        <h1 className="font-bold text-foreground">Dungeons</h1>
         <Button onClick={() => setShowCreate(true)}>+ New Dungeon</Button>
       </div>
 

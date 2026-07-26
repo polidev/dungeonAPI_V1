@@ -49,7 +49,7 @@ export default function CharacterList() {
   return (
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-        <h1 className="text-2xl font-bold text-foreground">Characters</h1>
+        <h1 className="font-bold text-foreground">Characters</h1>
         <Button onClick={() => setShowCreate(true)}>+ New Character</Button>
       </div>
 
@@ -122,7 +122,7 @@ export default function CharacterList() {
           <Input label="Name" placeholder="Aldric" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} error={formErrors.name?.[0]} />
           <Select label="Class" value={form.class} onChange={(e) => setForm({ ...form, class: e.target.value })}
             options={[{ value: "warrior", label: "Warrior" }, { value: "mage", label: "Mage" }, { value: "rogue", label: "Rogue" }, { value: "ranger", label: "Ranger" }]} />
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <Input label="HP" type="number" value={form.health} onChange={(e) => setForm({ ...form, health: +e.target.value })} error={formErrors.health?.[0]} />
             <Input label="ATK" type="number" value={form.attack} onChange={(e) => setForm({ ...form, attack: +e.target.value })} error={formErrors.attack?.[0]} />
             <Input label="DEF" type="number" value={form.defense} onChange={(e) => setForm({ ...form, defense: +e.target.value })} error={formErrors.defense?.[0]} />

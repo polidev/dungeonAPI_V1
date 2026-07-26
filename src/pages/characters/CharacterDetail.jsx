@@ -76,7 +76,7 @@ export default function CharacterDetail() {
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-3 mb-1">
-            <h1 className="text-2xl font-bold text-foreground">{character.name}</h1>
+            <h1 className="font-bold text-foreground">{character.name}</h1>
             <Badge variant="primary">Level {character.level}</Badge>
           </div>
           <p className="text-muted-foreground capitalize">{character.class}</p>
@@ -87,7 +87,7 @@ export default function CharacterDetail() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
         {stats.map((s) => (
           <div key={s.label} className="p-4 rounded-xl border border-border bg-card text-center">
             <p className="text-xs text-muted-foreground mb-1">{s.label}</p>
@@ -96,7 +96,7 @@ export default function CharacterDetail() {
         ))}
       </div>
 
-      <h2 className="text-lg font-semibold text-foreground mb-4">
+      <h2 className="font-semibold text-foreground mb-4">
         Inventory ({character.inventories?.length || 0})
       </h2>
 
@@ -125,7 +125,7 @@ export default function CharacterDetail() {
           <Input label="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} error={formErrors.name?.[0]} />
           <Select label="Class" value={form.class} onChange={(e) => setForm({ ...form, class: e.target.value })}
             options={[{ value: "warrior", label: "Warrior" }, { value: "mage", label: "Mage" }, { value: "rogue", label: "Rogue" }, { value: "ranger", label: "Ranger" }]} />
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <Input label="HP" type="number" value={form.health} onChange={(e) => setForm({ ...form, health: +e.target.value })} error={formErrors.health?.[0]} />
             <Input label="ATK" type="number" value={form.attack} onChange={(e) => setForm({ ...form, attack: +e.target.value })} error={formErrors.attack?.[0]} />
             <Input label="DEF" type="number" value={form.defense} onChange={(e) => setForm({ ...form, defense: +e.target.value })} error={formErrors.defense?.[0]} />

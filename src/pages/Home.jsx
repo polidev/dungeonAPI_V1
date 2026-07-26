@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div>
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-foreground mb-3">Dungeon API</h1>
+        <h1 className="font-bold text-foreground mb-3">Dungeon API</h1>
         <p className="text-muted-foreground text-lg">
           A REST API for managing dungeons, monsters, items and characters.
         </p>

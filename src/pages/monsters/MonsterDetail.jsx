@@ -77,7 +77,7 @@ export default function MonsterDetail() {
 
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground mb-1">{monster.name}</h1>
+          <h1 className="font-bold text-foreground mb-1">{monster.name}</h1>
           <p className="text-muted-foreground capitalize">
             {monster.type} &middot; in{" "}
             <Link to={`/dungeons/${monster.dungeonId}`} className="text-primary hover:underline">
@@ -91,7 +91,7 @@ export default function MonsterDetail() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
         {stats.map((s) => (
           <div key={s.label} className="p-4 rounded-xl border border-border bg-card text-center">
             <p className="text-xs text-muted-foreground mb-1">{s.label}</p>
@@ -105,7 +105,7 @@ export default function MonsterDetail() {
           <Input label="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} error={formErrors.name?.[0]} />
           <Select label="Type" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}
             options={[{ value: "beast", label: "Beast" }, { value: "undead", label: "Undead" }, { value: "demon", label: "Demon" }, { value: "elemental", label: "Elemental" }, { value: "dragon", label: "Dragon" }]} />
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <Input label="HP" type="number" value={form.health} onChange={(e) => setForm({ ...form, health: +e.target.value })} error={formErrors.health?.[0]} />
             <Input label="ATK" type="number" value={form.attack} onChange={(e) => setForm({ ...form, attack: +e.target.value })} error={formErrors.attack?.[0]} />
             <Input label="DEF" type="number" value={form.defense} onChange={(e) => setForm({ ...form, defense: +e.target.value })} error={formErrors.defense?.[0]} />

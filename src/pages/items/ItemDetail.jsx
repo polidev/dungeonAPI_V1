@@ -68,7 +68,7 @@ export default function ItemDetail() {
 
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground mb-1">{item.name}</h1>
+          <h1 className="font-bold text-foreground mb-1">{item.name}</h1>
           <p className="text-muted-foreground capitalize">{item.type} &middot; Power {item.power}</p>
         </div>
         <div className="flex gap-2 shrink-0">
@@ -84,7 +84,7 @@ export default function ItemDetail() {
 
       {item.inventories?.length > 0 && (
         <>
-          <h2 className="text-lg font-semibold text-foreground mb-4">
+          <h2 className="font-semibold text-foreground mb-4">
             Owned by ({item.inventories.length})
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
