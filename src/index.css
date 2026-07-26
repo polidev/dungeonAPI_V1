@@ -122,3 +122,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes slide-in-from-bottom-5 {
+  from { transform: translateY(1.25rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-in {
+  animation: slide-in-from-bottom-5 0.3s ease-out;
+}
