@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Dungeon {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String
+  difficulty  String   // easy | medium | hard | boss
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  monsters    Monster[]
+}
+
+model Monster {
+  id        String   @id @default(cuid())
+  name      String
+  type      String   // undead | beast | demon | elemental | dragon
+  health    Int
+  attack    Int
+  defense   Int
+  dungeonId String
+  dungeon   Dungeon  @relation(fields: [dungeonId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Item {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  type        String      // weapon | armor | potion | ring
+  power       Int
+  description String
+  imageUrl    String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  inventories Inventory[]
+}
+
+model Character {
+  id        String      @id @default(cuid())
+  name      String      @unique
+  class     String      // warrior | mage | rogue | ranger
+  health    Int
+  attack    Int
+  defense   Int
+  level     Int         @default(1)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  inventories Inventory[]
+}
+
+model Inventory {
+  id          String   @id @default(cuid())
+  characterId String
+  itemId      String
+  quantity    Int      @default(1)
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  item        Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+
+  @@unique([characterId, itemId])
+}
