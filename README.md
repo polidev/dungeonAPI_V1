@@ -40,12 +40,17 @@ cd dungeon-api-v1
 # 2. Install dependencies
 npm install
 
-# 3. Run database migrations
+# 3. Set up environment variables (copy .env.example to .env)
+cp .env.example .env
+
+# 4. Run database migrations
 npm run db:migrate
 
-# 4. Seed the database with sample data
+# 5. Seed the database with sample data
 npm run db:seed
 ```
+
+> The `postinstall` script automatically runs `prisma generate` after `npm install`, so the Prisma client is always available.
 
 ## 💻 Usage
 
